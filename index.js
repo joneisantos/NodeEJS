@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const connection = require("./database/database");
-const tecnologia = require("./database/tecnologias_model");
+const Tecnologia = require("./database/tecnologias_model");
 const bodyParser = require("body-parser");
 
 //Database
@@ -27,7 +27,15 @@ app.get("/index", (req, res) => {
 });
 
 app.get("/credits", (req, res) => {
-    res.render("credits");
+    Tecnologia.findAll({ raw: true, order:[
+        ['id','DESC']
+    ]}).then(tecnologias => {
+        //console.log(tecnologias);
+        res.render("credits",{
+            tecnologias: tecnologias
+        });
+    })
+    
 });
 
 app.get("/inserir", (req, res) => {
@@ -37,7 +45,7 @@ app.get("/inserir", (req, res) => {
 app.post("/inserirDados", (req, res) => {
     var titulo = req.body.titulo;
     var descricao = req.body.descricao;
-    tecnologia.create({
+    Tecnologia.create({
         titulo:titulo,
         descricao:descricao
     }).then(()=>{
