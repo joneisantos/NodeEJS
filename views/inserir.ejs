@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs')%>
+<%- include('partials/navbar.ejs')%>
+<body>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h5>Inserir tecnologias utilizadas</h5>
+            </div>            
+            <div class="card-body">
+                <form method="POST" action="/inserirDados">
+                    <label>Insira a tecnologia abaixo</label><br>
+                    <input type="text" name="titulo" placeholder="tecnologias" class="form-control"><br>
+                    <textarea name="descricao" placeholder="descricao" class="form-control"></textarea><br><br>
+                    <button id="btnEnviar" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>            
+        </div>
+    </div>
+
+<%- include('partials/footer.ejs')%>

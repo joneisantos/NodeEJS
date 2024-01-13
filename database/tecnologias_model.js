@@ -13,5 +13,7 @@ const Tecnologia = connection.define('tecnologia',{
 });
 
 Tecnologia.sync({force: false}).then(() => {
-    console.log("Tabela criada");
+    //console.log("Tabela criada");
 })
+
+module.exports = Tecnologia;
