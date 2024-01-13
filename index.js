@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
-//const connection = require("./database/database");
+const connection = require("./database/database");
+const tecnologiaModel = require("./database/tecnologias_model");
 
 //Database
-/*
+
 connection
     .authenticate()
     .then(() =>{
@@ -12,7 +13,7 @@ connection
     .catch((msgErro) =>{
         console.log(msgErro);
     })
-*/
+
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
